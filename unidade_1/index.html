@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 1</title>
+    <link rel="stylesheet" href="./assets/css/style_unidade.css">
+</head>
+
+<body id="unidade-container">
+    <!-- BOTÃO FIXO DO MENU LATERAL -->
+    <div class="side-menu-wrapper">
+        <button class="menu-toggle" type="button" aria-label="Abrir menu lateral" aria-expanded="false">
+            <span class="menu-icon" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+            <span class="menu-label">Menu</span>
+        </button>
+    </div>
+
+    <!-- BACKDROP ESCURECIDO -->
+    <div class="side-menu-backdrop" data-side-menu-backdrop></div>
+
+    <!-- MENU LATERAL (DRAWER) -->
+    <aside class="side-menu-drawer" aria-hidden="true" aria-label="Navegação do curso">
+        <div class="drawer-header">
+            <div class="drawer-title">Menu Navegação</div>
+            <button class="drawer-close" type="button" aria-label="Fechar menu lateral">
+                ✕
+            </button>
+        </div>
+
+        <nav class="drawer-content">
+            <div class="drawer-section">
+                <div class="drawer-section-title">Apresentação da Unidade</div>
+                <ul class="drawer-links">
+                    <!-- data-page define qual página a linkar -->
+                    <li><a href="#" data-page="1" class="is-current">Boas-vindas!</a></li>
+                </ul>
+            </div>
+
+            <div class="drawer-section">
+                <div class="drawer-section-title">Conteúdo da Unidade</div>
+                <ul class="drawer-links">
+                    <li><a href="#" data-page="2">1. Trajetória das PICS no Brasil e ao Redor do Mundo</a></li>
+                    <li><a href="#" data-page="3">2. A Gestão das Práticas Integrativas e Complementares no SUS</a></li>
+                    <li><a href="#" data-page="4">3. Material de Apoio: Desafios e Oportunidades</a></li>
+                    <li><a href="#" data-page="5">Considerações finais</a></li>
+                </ul>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL + CABEÇALHO -->
+    <div id="pagina-unidade">
+        <header id="cabecalho-topo-unidade">
+            <h1 id="titulo-unidade">
+                <span class="numeracao-unidade">Unidade 1</span>
+                <span class="assumto-tema-unidade">
+                    As Práticas Integrativas e Complementares no Brasil e no Mundo
+                </span>
+            </h1>
+            <hr>
+        </header>
+
+        <main id="conteudo-pagina-container">
+            <!-- Conteúdo das páginas será injetado via JavaScript -->
+        </main>
+    </div>
+
+    <!-- CONTROLE PRINCIPAL DE PAGINAÇÃO -->
+    <div class="pagination-container">
+        <h2></h2>
+        <div class="nav-buttons">
+            <div class="nav-button prev" onclick="prevPage()">
+                <div class="circle">←</div>
+                <span>RETORNAR</span>
+            </div>
+
+            <div class="page-indicator" id="page-indicator">Página 1 de 4</div>
+
+            <div class="nav-button next" onclick="nextPage()">
+                <div class="circle">→</div>
+                <span>AVANÇAR</span>
+            </div>
+        </div>
+        <div class="dots" id="dots-container">
+            <!-- Dots gerados dinamicamente -->
+        </div>
+    </div>
+
+    <!-- CONTROLE FLUTUANTE -->
+    <div class="page-control" id="pageControl">
+        <button class="circle-btn" onclick="prevPage()">←</button>
+        <div class="page-number" id="pageNumber">Página 1</div>
+        <button class="circle-btn" onclick="nextPage()">→</button>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer id="footer-pagina-unidade">
+        <div class="container-logos-footer">
+            <img src="./assets/images/instituicoes-envolvidas-logo-rodape.png" class="instituicoes-logos-rodape"
+                alt="Instituições vinculadas ao projeto">
+        </div>
+    </footer>
+
+    <script>
+        /* ---------------- PAGINAÇÃO ---------------- */
+
+        const conteudoContainer = document.getElementById('conteudo-pagina-container');
+        const pageIndicator = document.getElementById('page-indicator');
+        const dotsContainer = document.getElementById('dots-container');
+        const pageNumber = document.getElementById('pageNumber');
+        const pageControl = document.getElementById('pageControl');
+
+        // Conteúdos de cada página (os mesmos que você forneceu)
+        const pagesContent = [
+            `
+      <section id="banner-unidade"
+        style="background-image: url(./assets/images/homem-praticar-ioga-banner-modulo-1.jpg); background-size: cover; background-position: center; border-radius: 18px; overflow: hidden; position: relative; min-height: 220px;">
+        <div class="overlap-black"></div>
+        <div class="box-texto-banner">
+          <h2>Introdução à Meditação</h2>
+        </div>
+      </section>
+
+      <section class="imagem-texto-container" style="margin-top:1.5rem;">
+        <div class="image-content">
+          <figure>
+            <img src="./assets/images/blob-mulher-meditando.png" alt="Imagem ilustrativa de exemplo">
+          </figure>
+        </div>
+        <article class="text-content">
+          <h2>Boas-vindas!</h2>
+          <p>
+            <span class="highlight">Olá! Bem-vindo(a) ao módulo introdutório sobre Meditação e
+              Práticas Integrativas e Complementares em Saúde (PICS).</span> Você já ouviu falar sobre as
+            PICS? Sabia que práticas como a meditação, o yoga, o reiki e a fitoterapia vêm sendo
+            incorporadas de forma crescente ao SUS como estratégias de cuidado ampliado e integral?
+          </p>
+          <p>
+            Este módulo foi pensado para você, que deseja compreender o papel da meditação no contexto da
+            saúde pública brasileira e refletir sobre como essas práticas vêm sendo reconhecidas,
+            regulamentadas e implementadas no Brasil e no mundo.
+          </p>
+        </article>
+      </section>
+
+<section class="caixa-estilizada-container">
+                <div class="linha-caixa-estilizada"></div>
+                <div class="caixa-estilizada">
+                    <h2>Ao longo do percurso, você será convidado(a) a:</h2>
+                    <ol>
+                        <li>Conhecer o histórico e a expansão das PICS no cenário nacional e internacional;</li>
+                        <li>Refletir sobre a gestão dessas práticas dentro dos serviços de saúde;</li>
+                        <li>Compreender a importância da meditação como prática terapêutica reconhecida pelo SUS;</li>
+                        <li>Compartilhar sua experiência e expectativas por meio de um questionário inicial e fóruns
+                            colaborativos.</li>
+                    </ol>
+                </div>
+            </section>
+
+
+      <section class="texto-corrido-container">
+        <div class="caixa-verde">
+          <p>
+            Com vídeos, textos curtos, experiências de gestores(as) e materiais complementares, nossa
+            proposta é oferecer um espaço
+            de aprendizado acessível, prático e conectado com a realidade do SUS.
+          </p>
+          <p>
+            <span class="highlight">Este curso é autoinstrucional</span>, mas conta com o apoio de
+            facilitadores(as). Você poderá
+            interagir, trocar saberes e aprofundar seu entendimento com base em sua própria trajetória.
+          </p>
+        </div>
+      </section>
+      `,
+            `
+      <section class="texto-corrido-container" style="position: relative;">
+        <h2>1. Trajetória das PICS no Brasil e ao Redor do Mundo</h2>
+        <p>
+          Bem, com a finalidade de contextualizar o percurso das Práticas Integrativas e
+          Complementares em Saúde (PICS) no Brasil, a fala a seguir apresenta a história recente e o
+          reconhecimento das PICS por meio de Políticas Públicas. Para auxiliar-nos nesse debate, apresentamos
+          a fala da Profa. Dra. Islândia Maria Carvalho de Sousa, Pesquisadora e Docente de Pós-Graduação em
+          Saúde Pública do Instituto de Pesquisas Aggeu Magalhães — Fiocruz Pernambuco e Coordenadora do
+          Observatório Nacional de Saberes e Práticas Tradicionais, Integrativas e Complementares em Saúde
+          (ObservaPICS).
+        </p>
+        <p>
+          Sugerimos a leitura da Política Nacional de Práticas Integrativas e Complementares do SUS,
+          disponível em <a
+            href="https://drive.google.com/file/d/17ATXr_G9Y3u1-J9gUIbn1feWr-w8SZj9/view?usp=sharing" target="_blank">Política
+            Nacional de Práticas Integrativas e Complementares no SUS</a>.
+        </p>
+        <div class="imagem-container">
+          <figure>
+            <img src="assets/images/mulher-branca-praticando-ioga.jpg" alt="Mulher branca praticando Ioga">
+          </figure>
+        </div>
+        <p>
+          A Organização Mundial da Saúde (OMS) ampliou o estímulo às práticas/saberes em saúde tradicional,
+          denominadas Medicinas
+          Tradicionais Complementares e Integrativas (MTCI), para que assumam um espaço como recursos de
+          cuidado pelos sistemas
+          nacionais de saúde.
+        </p>
+        <p>
+          Desde então, diversos países reconheceram e inseriram diversas práticas integrativas em seus
+          sistemas de saúde, com
+          avanços importantes relativos à legitimação e regulamentação destas.
+        </p>
+      </section>
+      <section class="caixa-estilizada-container">
+        <div class="caixa-estilizada" style="max-width: 900px;">
+          <h2>Saiba mais:</h2>
+          <p>
+            Para facilitar a compreensão deste contexto histórico mundial, apresentamos a fala da Profa Dra.
+            Madel Therezinha Luz,
+            filósofa e pesquisadora na área de sociologia da saúde, com produção em temas relacionados às
+            racionalidades médicas e
+            práticas integrativas e complementares em saúde (PICS).
+          </p>
+          <div class="video-wrapper">
+            <div class="video-background"></div>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/z90QXxEBhgo"
+                title="Como Surgiram as Práticas Integrativas e Complementares em Saúde - PICS" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      `,
+            `
+      <section class="texto-corrido-container">
+        <h2>2. A Gestão das Práticas Integrativas e Complementares no SUS</h2>
+        <p>
+          Nesta seção apresentaremos as falas de gestores em PICS, responsáveis pelo gerenciamento de
+          projetos, programas e
+          serviços em diferentes níveis de atenção, distribuídos em diversos estados e municípios do Brasil.
+        </p>
+        <p>
+          Sugerimos a leitura do Manual de Implantação de Serviços de Práticas Integrativas e Complementares
+          no SUS, disponível no
+          <a href="https://drive.google.com/file/d/1V4NItsw4ytQ5Ku1tBs3bl0PQCQmM09Nf/view?usp=sharing"
+            target="_blank">material de leitura complementar</a>.
+        </p>
+      </section>
+
+      <!-- COMPONENTE: Saiba Mais -->
+      <div class="info-block saiba-mais">
+        <div class="info-block-icon">📚</div>
+        <div class="info-block-content">
+          <h3>Saiba Mais</h3>
+          <p>
+            A gestão eficiente de PICS requer compreensão profunda de políticas públicas, recursos humanos e infraestrutura. 
+            Explore os documentos oficiais do SUS para entender melhor como essas práticas são integradas nos diferentes 
+            níveis de atenção à saúde.
+          </p>
+        </div>
+      </div>
+
+      <!-- COMPONENTE: Fique por Dentro -->
+      <div class="info-block fique-por-dentro">
+        <div class="info-block-icon">📰</div>
+        <div class="info-block-content">
+          <h3>Fique por Dentro</h3>
+          <p>
+            O SUS oferece financiamento para a implementação de serviços em PICS. Gestores municipais e estaduais 
+            devem acompanhar as portarias e diretrizes do Ministério da Saúde para acessar recursos e ampliar 
+            a oferta dessas práticas em suas comunidades.
+          </p>
+        </div>
+      </div>
+
+      <!-- COMPONENTE: Dica -->
+      <div class="info-block dica">
+        <div class="info-block-icon">💡</div>
+        <div class="info-block-content">
+          <h3>Dica</h3>
+          <p>
+            Ao estruturar um programa de PICS, envolva profissionais locais, gestores de saúde e a comunidade 
+            desde o início. Essa abordagem participativa garante que as práticas sejam culturalmente apropriadas 
+            e atendam às necessidades reais da população.
+          </p>
+        </div>
+      </div>
+
+      <!-- COMPONENTE: Atenção -->
+      <div class="info-block atencao">
+        <div class="info-block-icon">⚠️</div>
+        <div class="info-block-content">
+          <h3>Atenção</h3>
+          <p>
+            As PICS não substituem tratamentos convencionais comprovados. Devem ser utilizadas de forma 
+            complementar e integrada, sempre sob orientação de profissionais qualificados e dentro dos protocolos 
+            estabelecidos pelo SUS.
+          </p>
+        </div>
+      </div>
+
+        <!-- INTRODUÇÃO AOS BOTÕES DE AÇÃO -->
+        
+
+        <!-- BOTÕES DE AÇÃO -->
+        <div class="action-buttons-container">
+            <p style="text-align: justify; margin: 2rem auto 1rem;">
+            Para dar continuidade ao seu aprendizado, explore os recursos abaixo. Participe do nosso fórum para trocar experiências, acesse o material de apoio e, ao final, realize a avaliação da unidade.
+            </p>
+            <a href="#" class="action-button forum" title="Participar do fórum de discussão">
+                <span class="action-button-icon">💬</span>
+                <span>Fórum</span>
+            </a>
+            <p style="text-align: justify; margin: 2rem auto 1rem;">
+            Para dar continuidade ao seu aprendizado, explore os recursos abaixo. Participe do nosso fórum para trocar experiências, acesse o material de apoio e, ao final, realize a avaliação da unidade.
+            </p>
+            <a href="#" class="action-button material" title="Acessar material complementar">
+                <span class="action-button-icon">📄</span>
+                <span>Material Complementar</span>
+            </a>
+            <p style="text-align: justify; margin: 2rem auto 1rem;">
+            Para dar continuidade ao seu aprendizado, explore os recursos abaixo. Participe do nosso fórum para trocar experiências, acesse o material de apoio e, ao final, realize a avaliação da unidade.
+            </p>
+            <a href="#" class="action-button avaliacao" title="Realizar avaliação da unidade">
+                <span class="action-button-icon">✓</span>
+                <span>Avaliação da Unidade</span>
+            </a>
+        </div>
+
+      <section class="caixa-estilizada-container">
+        <div class="caixa-estilizada" style="max-width: 900px;">
+          <h2>Assista o Vídeo:</h2>
+          <div class="video-wrapper">
+            <div class="video-background"></div>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/foy2udUymSM"
+                title="A Gestão dos Serviços em PICS – Parte 1" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      `,
+            `
+      <section class="texto-corrido-container">
+        <h2>3. Material de Apoio: Desafios e Oportunidades</h2>
+        <p>
+          Para aprofundar a discussão sobre os desafios e oportunidades na implementação das PICS, preparamos um material de apoio em formato de revista digital. Explore o conteúdo virando as páginas.
+        </p>
+      </section>
+      </section>
+      <div id="flipbook-placeholder"></div>
+      </section>
+
+      <div class="high-fidelity-3d-flipbook">
+
+          <div class="scene">
+              <div class="book" id="book">
+
+                  <div class="page" id="p1">
+                      <div class="face front">
+                          <img src="./assets/images/HQ_page-0001.jpg" alt="Front Cover">
+                      </div>
+                      <div class="face back">
+                          <img src="./assets/images/HQ_page-0002.jpg" alt="Inner Cover">
+                      </div>
+                  </div>
+
+                  <div class="page" id="p2">
+                      <div class="face front">
+                          <img src="./assets/images/HQ_page-0003.jpg" alt="Page 1 Image">
+                      </div>
+                      <div class="face back">
+                          <img src="./assets/images/HQ_page-0004.jpg" alt="Page 2 Image">
+                      </div>
+                  </div>
+
+                  <div class="page" id="p3">
+                      <div class="face front">
+                          <img src="./assets/images/HQ_page-0005.jpg" alt="Page 3 Image">
+                      </div>
+                      <div class="face back">
+                          <img src="./assets/images/HQ_page-0006.jpg" alt="Page 4 Image">
+                      </div>
+                  </div>
+
+                  <div class="page" id="p4">
+                      <div class="face front">
+                          <img src="./assets/images/HQ_page-0007.jpg" alt="Page 5 Image">
+                      </div>
+                      <div class="face back">
+                          <img src="https://placehold.co/2482x3510/658D5D/FFF/png?text=FIM" alt="Back Cover">
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="controls">
+              <button id="flipbook-prev-btn" disabled title="Página Anterior">&#8592; Anterior</button>
+              <button id="fullscreenBtn" title="Tela Cheia">⛶</button>
+              <button id="flipbook-next-btn" title="Próxima Página">Próxima &#8594;</button>
+          </div>
+      </div>
+      `,
+            `
+      <section class="texto-corrido-container">
+        <h2>3. Considerações Finais</h2>
+        <section class="imagem-texto-container">
+          <div class="image-content">
+            <figure>
+              <img src="./assets/images/consideracoes-finais-imagem.jpeg" alt="Imagem ilustrativa de exemplo">
+            </figure>
+          </div>
+          <article class="text-content">
+            <p>
+              Neste primeiro módulo, você teve a oportunidade de conhecer a trajetória das Práticas Integrativas e Complementares em
+              Saúde (PICS) no Brasil e no mundo, compreendendo o papel da meditação como uma prática reconhecida e incorporada ao SUS.
+            </p>
+            <p>
+              Esperamos que este percurso inicial tenha despertado em você um novo olhar para o cuidado em saúde — mais ampliado, mais
+              humano e mais conectado com saberes diversos, que dialogam entre a ciência e a experiência.
+            </p>
+          </article>
+        </section>
+        <p>
+          Que este aprendizado seja o ponto de partida para aprofundar seus conhecimentos, fortalecer sua prática profissional e
+          contribuir para um SUS cada vez mais integral, inclusivo e acolhedor.
+        </p>
+      </section>
+      `
+        ];
+
+        const totalPages = pagesContent.length;
+        let currentPage = 1;
+
+        function updateUI() {
+            // Atualiza textos indicadores
+            pageIndicator.textContent = `Página ${currentPage} de ${totalPages}`;
+            pageNumber.textContent = `Página ${currentPage}`;
+
+            // Atualiza conteúdo principal
+            conteudoContainer.innerHTML = pagesContent[currentPage - 1];
+
+            // Atualiza dots
+            dotsContainer.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.textContent = i;
+                if (i === currentPage) dot.classList.add('active');
+                dot.onclick = () => {
+                    currentPage = i;
+                    updateUI();
+                };
+                dotsContainer.appendChild(dot);
+            }
+
+            // Atualiza realce no menu lateral
+            const drawerLinks = document.querySelectorAll('.drawer-links a[data-page]');
+            drawerLinks.forEach(link => {
+                const page = Number(link.dataset.page);
+                link.classList.toggle('is-current', page === currentPage);
+            });
+
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Após atualizar o conteúdo, verifica se a nova página tem elementos
+            // de destaque e, em caso afirmativo, executa a animação.
+            if (document.querySelector('.highlight')) {
+                animateHighlight();
+            }
+
+            // Se estivermos na página 4, inicializa o flipbook.
+            if (currentPage === 4) {
+                // Adiciona um pequeno delay para garantir que o DOM foi renderizado
+                setTimeout(initializeFlipbook, 100);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updateUI();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateUI();
+            }
+        }
+
+        // Disponibiliza para os botões com onclick
+        window.prevPage = prevPage;
+        window.nextPage = nextPage;
+
+        // Oculta controle flutuante perto do fim da página
+        window.addEventListener('scroll', () => {
+            const paginationContainer = document.querySelector('.pagination-container');
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const documentHeight = document.body.offsetHeight;
+            const hideThreshold = documentHeight - paginationContainer.offsetHeight - 150;
+
+            if (scrollPosition >= hideThreshold) {
+                pageControl.classList.add('hidden');
+            } else {
+                pageControl.classList.remove('hidden');
+            }
+        });
+
+        // ---------------- MENU LATERAL (JS) ----------------
+
+        const bodyEl = document.body;
+        const toggleButton = document.querySelector(".menu-toggle");
+        const drawer = document.querySelector(".side-menu-drawer");
+        const backdrop = document.querySelector("[data-side-menu-backdrop]");
+        const closeButton = document.querySelector(".drawer-close");
+        const drawerLinks = document.querySelectorAll(".drawer-links a[data-page]");
+        const focusableSelectors =
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+        let lastFocusedElement = null;
+
+        function openMenu() {
+            if (drawer.classList.contains("is-open")) return;
+
+            lastFocusedElement = document.activeElement;
+
+            drawer.classList.add("is-open");
+            backdrop.classList.add("is-visible");
+            drawer.setAttribute("aria-hidden", "false");
+            toggleButton.setAttribute("aria-expanded", "true");
+            bodyEl.style.overflow = "hidden";
+
+            const firstFocusable = drawer.querySelector(focusableSelectors);
+            if (firstFocusable) firstFocusable.focus();
+        }
+
+        function closeMenu() {
+            if (!drawer.classList.contains("is-open")) return;
+
+            drawer.classList.remove("is-open");
+            backdrop.classList.remove("is-visible");
+            drawer.setAttribute("aria-hidden", "true");
+            toggleButton.setAttribute("aria-expanded", "false");
+            bodyEl.style.overflow = "";
+
+            if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+                lastFocusedElement.focus();
+            }
+        }
+
+        toggleButton.addEventListener("click", openMenu);
+        closeButton.addEventListener("click", closeMenu);
+        backdrop.addEventListener("click", closeMenu);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" || event.key === "Esc") {
+                closeMenu();
+            }
+        });
+
+        // Cada link do menu vira uma "página"
+        drawerLinks.forEach(link => {
+            link.addEventListener("click", (event) => {
+                event.preventDefault();
+                const page = Number(link.dataset.page);
+                if (!isNaN(page)) {
+                    currentPage = page;
+                    updateUI();
+                }
+                closeMenu();
+            });
+        });
+
+        // Inicialização: Garante que todo o HTML e scripts foram carregados
+        // antes de executar a primeira renderização da página.
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+        });
+
+        
+    </script> <!-- PAGINAÇÃO + MENU LATERAL -->
+
+    <!-- Efeito de marcador de texto + FLIPBOOK -->
+    <script src="./assets/js/script_unidade.js"></script>
+</body>
+
+</html>

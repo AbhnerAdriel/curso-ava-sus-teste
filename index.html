@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso</title>
+    <!-- REMOVIDO: Tailwind CSS -->
+    <script src="/_sdk/element_sdk.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style_curso.css">
+
+    <style>
+        
+
+    </style>
+
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <!-- View: Lista de Unidades -->
+        <div id="units-view" class="view active">
+            <div class="units-container">
+                <header class="main-header">
+                    <h1 id="main-title">
+                        As Práticas Integrativas e Complementares no Brasil e no Mundo
+                    </h1>
+                    <hr>
+                    <div class="collapsible-content" id="collapsible-content">
+                        <!-- Vídeo de Boas-Vindas -->
+                        <div class="welcome-video-section">
+                            <h2 class="welcome-video-title"> Boas-vindas ao Curso</h2>
+                            <div class="video-container">
+                                <iframe width="1212" height="682" src="https://www.youtube.com/embed/WOoa1zonTSs" title="PNPIC - Histórico de Ampliação"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                        <div class="subtitle-wrapper">
+                            <div class="circular-images-container">
+                                <a href="#" class="circular-image-link">
+                                    <figure class="circular-image-figure">
+                                        <img src="./assets/images/ementa-icon.png" alt="Imagem 2" class="circular-image">
+                                        <figcaption class="circular-image-caption">Assuntos do Curso</figcaption>
+                                    </figure>
+                                </a>
+                                <a href="#" class="circular-image-link">
+                                    <figure class="circular-image-figure">
+                                        <img src="./assets/images/forum-icon.png" alt="Imagem 1" class="circular-image">
+                                        <figcaption class="circular-image-caption">Dialogando com as Práticas</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            
+                            <p id="main-subtitle">
+                                (Resumo do Curso) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend luctus arcu.
+                                Vestibulum eu eros mollis, mollis
+                                ligula eu, rhoncus massa. Aliquam vitae turpis magna. Integer vitae nulla sed lorem vehicula
+                                aliquam nec vitae lacus.
+                                Donec nec sem vitae quam finibus pellentesque. Curabitur pulvinar sagittis neque nec convallis.
+                                Fusce malesuada tellus
+                                lacus, id iaculis mi cursus quis. Donec ut hendrerit ipsum, et efficitur odio.
+                            </p>
+
+                            <div class="enriched-list">
+                                <ul>
+                                    <li><strong>Modalidade:</strong> EaD autoinstrucional (AVASUS)</li>
+                                    <li><strong>Carga horária:</strong> 60h</li>
+                                    <li><strong>Público-alvo:</strong> Profissionais de saúde, gestores, estudantes e demais interessados nas Práticas Integrativas e Complementares (PICS).</li>
+                                    <li><strong>Formato:</strong> Curso modular, com unidades autônomas e articuladas, combinando leitura, vídeos, HQs, fóruns e materiais complementares.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toggle-btn-container">
+                        <button id="toggle-content-btn" class="content-toggle-btn">Mostrar Mais</button>
+                    </div>
+                </header>
+
+                <!-- Cards das Unidades -->
+                <div class="units-grid">
+                    <!-- Unidade 1 -->
+                    <article class="unit-card" onclick="showUnit(1)">
+                        <div class="unit-image" style="background-image: url('./assets/images/imagem-unidade-1.jpg');">
+                        </div>
+                        <div class="unit-card-body">
+                            <h2 class="unit-card-title">Unidade 1</h2>
+                            <p class="unit-card-meta">15 horas • 2 lições</p>
+                        </div>
+                    </article>
+
+                    <!-- Unidade 2 -->
+                    <article class="unit-card" onclick="showUnit(2)">
+                        <div class="unit-image" style="background-image: url('./assets/images/imagem-unidade-2.jpeg');">
+                            <!-- Fallback: remova se tiver imagem de fundo -->
+                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                <text x="50" y="70" text-anchor="middle" font-size="64" font-weight="700" fill="white">
+                                    2
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="unit-card-body">
+                            <h2 class="unit-card-title">Unidade 2</h2>
+                            <p class="unit-card-meta">15 horas • 4 lições</p>
+                        </div>
+                    </article>
+
+                    <!-- Unidade 3 -->
+                    <article class="unit-card" onclick="showUnit(3)">
+                        <div class="unit-image" style="background-image: url('./assets/images/imagem-unidade-3.jpg');">
+                            <!-- Fallback: remova se tiver imagem de fundo -->
+                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                <text x="50" y="70" text-anchor="middle" font-size="64" font-weight="700" fill="white">
+                                    3
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="unit-card-body">
+                            <h2 class="unit-card-title">Unidade 3</h2>
+                            <p class="unit-card-meta">15 horas • 3 lições</p>
+                        </div>
+                    </article>
+
+                    <!-- Unidade 4 -->
+                    <article class="unit-card" onclick="showUnit(4)">
+                        <div class="unit-image" style="background-image: url('./assets/images/imagem-unidade-4.jpg');">
+                            <!-- Fallback: remova se tiver imagem de fundo -->
+                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                <text x="50" y="70" text-anchor="middle" font-size="64" font-weight="700" fill="white">
+                                    4
+                                </text>
+                            </svg>
+                        </div>
+                        <div class="unit-card-body">
+                            <h2 class="unit-card-title">Unidade 4</h2>
+                            <p class="unit-card-meta">15 horas • Projeto prático</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: Conteúdo da Unidade 1 -->
+        <div id="unit1-view" class="view">
+            <div class="unit-view-inner">
+                <button class="back-button" onclick="showUnits()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Voltar
+                </button>
+
+                <h1 class="unit-title">Unidade 1: As Práticas Integrativas e Complementares no Brasil e no Mundo</h1>
+                <p class="unit-meta">15 horas • 2 lições</p>
+
+                <div class="video-container">
+                    <iframe width="1212" height="682" src="https://www.youtube.com/embed/mJU87-tFZ6M"
+                        title="Introdução às Práticas Integrativas e Complementares (PICS) na Atenção Básica" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                <div class="unit-info-card">
+                    <h2 class="section-title">Tópicos abordados</h2>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <h3 class="topic-title">🗺️ Trajetória das PICS no Brasil e ao Redor do Mundo</h3>
+                            <p class="topic-text">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui facilis fugiat vel, incidunt modi dignissimos ipsum ad
+                                ullam obcaecati rerum tempore beatae aut repellendus.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">🏥 A Gestão das Práticas Integrativas e Complementares no SUS</h3>
+                            <p class="topic-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam molestiae commodi tenetur quia odit minus
+                                exercitationem repellendus quo cupiditate harum.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">📚 Material de Apoio: Fórum, Livros, HQs e Atividades</h3>
+                            <p class="topic-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto dolor quos sapiente aliquam cupiditate, consequuntur
+                                neque debitis! Alias minus eos, eum ducimus molestias adipisci neque.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href=".././unidade_1/index.html" target="_blank" class="cta-button">
+                        🚀 Acessar Conteúdo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: Conteúdo da Unidade 2 -->
+        <div id="unit2-view" class="view">
+            <div class="unit-view-inner">
+                <button class="back-button" onclick="showUnits()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Voltar
+                </button>
+
+                <h1 class="unit-title">Unidade 2: CSS Essencial</h1>
+                <p class="unit-meta">15 horas • 4 lições</p>
+
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="white" opacity="0.8">
+                            <path d="M30 20L60 40L30 60V20Z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="unit-info-card">
+                    <h2 class="section-title">Tópicos abordados</h2>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <h3 class="topic-title">🎯 Seletores</h3>
+                            <p class="topic-text">
+                                Domine os diferentes tipos de seletores CSS para aplicar estilos precisos aos elementos
+                                da sua página.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">📦 Box Model</h3>
+                            <p class="topic-text">
+                                Entenda o modelo de caixa do CSS e como controlar margens, bordas, preenchimento e
+                                dimensões.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">🔲 Flexbox</h3>
+                            <p class="topic-text">
+                                Aprenda a criar layouts flexíveis e responsivos usando o poderoso sistema Flexbox.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="cta-button">
+                        🚀 Acessar Conteúdo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: Conteúdo da Unidade 3 -->
+        <div id="unit3-view" class="view">
+            <div class="unit-view-inner">
+                <button class="back-button" onclick="showUnits()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Voltar
+                </button>
+
+                <h1 class="unit-title">Unidade 3: JavaScript</h1>
+                <p class="unit-meta">15 horas • 3 lições</p>
+
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="white" opacity="0.8">
+                            <path d="M30 20L60 40L30 60V20Z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="unit-info-card">
+                    <h2 class="section-title">Tópicos abordados</h2>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <h3 class="topic-title">💾 Variáveis</h3>
+                            <p class="topic-text">
+                                Aprenda a declarar e usar variáveis para armazenar e manipular dados em seus programas.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">⚡ Funções</h3>
+                            <p class="topic-text">
+                                Descubra como criar blocos de código reutilizáveis através de funções para organizar seu
+                                programa.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">🌐 DOM</h3>
+                            <p class="topic-text">
+                                Manipule elementos da página web dinamicamente usando o Document Object Model (DOM).
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="cta-button">
+                        🚀 Acessar Conteúdo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: Conteúdo da Unidade 4 -->
+        <div id="unit4-view" class="view">
+            <div class="unit-view-inner">
+                <button class="back-button" onclick="showUnits()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Voltar
+                </button>
+
+                <h1 class="unit-title">Unidade 4: Projeto Final</h1>
+                <p class="unit-meta">15 horas • Projeto prático</p>
+
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="white" opacity="0.8">
+                            <path d="M30 20L60 40L30 60V20Z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="unit-info-card">
+                    <h2 class="section-title">Tópicos abordados</h2>
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <h3 class="topic-title">📋 Planejamento</h3>
+                            <p class="topic-text">
+                                Aprenda a planejar seu projeto web, definindo escopo, estrutura e funcionalidades antes
+                                de começar a
+                                codificar.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">💻 Desenvolvimento</h3>
+                            <p class="topic-text">
+                                Construa seu site do zero aplicando tudo que aprendeu em HTML, CSS e JavaScript.
+                            </p>
+                        </div>
+                        <div class="topic-card">
+                            <h3 class="topic-title">🚀 Publicação</h3>
+                            <p class="topic-text">
+                                Aprenda a publicar seu site na internet e compartilhar seu trabalho com o mundo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="cta-button">
+                        🚀 Acessar Conteúdo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <img src="./assets/images/instituicoes-envolvidas-logo-rodape.png" alt="Logo do rodapé — AVA SUS">
+    </footer>
+
+    <script>
+        const defaultConfig = {
+            course_title: "Desenvolvimento Web",
+            course_subtitle: "Aprenda do básico ao avançado",
+            background_color: "#FFEFC7",
+            sidebar_color: "#658D5D",
+            card_color: "#ffffff",
+            text_color: "#2d3748",
+            accent_color: "#658D5D",
+            font_family: "Inter",
+            font_size: 16
+        };
+
+        async function onConfigChange(config) {
+            const titleText = config.course_title || defaultConfig.course_title;
+            const subtitleText = config.course_subtitle || defaultConfig.course_subtitle;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+
+            const mainTitle = document.getElementById('main-title');
+            const mainSubtitle = document.getElementById('main-subtitle');
+            if (mainTitle) mainTitle.textContent = titleText;
+            if (mainSubtitle) mainSubtitle.textContent = subtitleText;
+
+            document.getElementById('sidebar-title').textContent = titleText;
+            document.getElementById('sidebar-subtitle').textContent = subtitleText;
+
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+            if (mainTitle) mainTitle.style.fontSize = `${baseSize * 2.5}px`;
+            if (mainSubtitle) mainSubtitle.style.fontSize = `${baseSize * 1.125}px`;
+            document.getElementById('sidebar-title').style.fontSize = `${baseSize * 1.5}px`;
+            document.getElementById('sidebar-subtitle').style.fontSize = `${baseSize * 0.875}px`;
+
+            const h1Elements = document.querySelectorAll('h1');
+            h1Elements.forEach(el => el.style.fontSize = `${baseSize * 2.5}px`);
+
+            const h2Elements = document.querySelectorAll('h2');
+            h2Elements.forEach(el => el.style.fontSize = `${baseSize * 1.875}px`);
+
+            const h3Elements = document.querySelectorAll('h3');
+            h3Elements.forEach(el => el.style.fontSize = `${baseSize * 1.25}px`);
+
+            const pElements = document.querySelectorAll('p');
+            pElements.forEach(el => el.style.fontSize = `${baseSize}px`);
+        }
+
+        function showUnit(unitNumber) {
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+            document.getElementById(`unit${unitNumber}-view`).classList.add('active');
+
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach((item, index) => {
+                item.classList.remove('active');
+                item.style.backgroundColor = 'transparent';
+                item.style.borderLeft = 'none';
+                if (index === unitNumber - 1) {
+                    item.classList.add('active');
+                }
+            });
+
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.mobile-overlay');
+            if (sidebar && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+                if (overlay) overlay.classList.remove('active');
+            }
+
+            // Suave scroll para o topo
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // Fallback para navegadores antigos
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function showUnits() {
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+            document.getElementById('units-view').classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const overlay = document.querySelector('.mobile-overlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function toggleMobileMenu() {
+            toggleSidebar();
+        }
+
+        const menuBtn = document.getElementById('menu-toggle-btn');
+        const menuText = document.getElementById('menu-text');
+
+        menuBtn.addEventListener('mouseenter', () => {
+            menuBtn.style.width = '110px';
+            menuBtn.style.paddingLeft = '12px';
+            menuBtn.style.paddingRight = '16px';
+            menuText.style.opacity = '1';
+        });
+
+        menuBtn.addEventListener('mouseleave', () => {
+            menuBtn.style.width = '48px';
+            menuBtn.style.paddingLeft = '0';
+            menuBtn.style.paddingRight = '0';
+            menuText.style.opacity = '0';
+        });
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => {
+                                config.background_color = value;
+                                document.querySelector('.main-content').style.backgroundColor = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.sidebar_color || defaultConfig.sidebar_color,
+                            set: (value) => {
+                                config.sidebar_color = value;
+                                document.querySelector('.sidebar').style.background = `linear-gradient(180deg, ${value} 0%, #4E6F48 100%)`;
+                                window.elementSdk.setConfig({ sidebar_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.card_color || defaultConfig.card_color,
+                            set: (value) => {
+                                config.card_color = value;
+                                document.querySelectorAll('.unit-card').forEach(card => card.style.backgroundColor = value);
+                                window.elementSdk.setConfig({ card_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                document.querySelectorAll('h1, h2, h3').forEach(el => el.style.color = value);
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.accent_color || defaultConfig.accent_color,
+                            set: (value) => {
+                                config.accent_color = value;
+                                document.querySelectorAll('.unit-image, .video-placeholder').forEach(el => {
+                                    el.style.background = `linear-gradient(135deg, ${value} 0%, #4E6F48 100%)`;
+                                });
+                                document.querySelectorAll('.mobile-menu-btn').forEach(btn => {
+                                    btn.style.background = `linear-gradient(135deg, ${value} 0%, #4E6F48 100%)`;
+                                });
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["course_title", config.course_title || defaultConfig.course_title],
+                    ["course_subtitle", config.course_subtitle || defaultConfig.course_subtitle]
+                ])
+            });
+        }
+    </script>
+
+    <script>
+        // Script para o botão "Mostrar Mais / Mostrar Menos"
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle-content-btn');
+            const content = document.getElementById('collapsible-content');
+
+            toggleBtn.addEventListener('click', function() {
+                const isExpanded = content.classList.toggle('expanded');
+                toggleBtn.textContent = isExpanded ? 'Mostrar Menos' : 'Mostrar Mais';
+            });
+        });
+    </script>
+
+
+
+    <!-- Script de challenge (mantido como no original) -->
+    <script>
+        (function () {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML = "window.__CF$cv$params={r:'9a3d6b35f6af5cb7',t:'MTc2NDAzNDYyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none';
+                a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function () { };
+                    document.onreadystatechange = function (b) {
+                        e(b);
+                        'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>
